@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSupport QR Scanner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="mobile.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script src="https://cdn.statically.io/gh/tr1nh/fetch-sheet.js/master/fetch-sheet.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduSupport</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Scanner View -->
+            <div class="scanner-view active" id="scannerView">
+                <div class="scanner-wrapper">
+                    <video id="webcam" playsinline></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                    <div class="scanner-overlay">
+                        <div class="scanner-frame"></div>
+                    </div>
+                </div>
+                <button id="startCamera" class="action-button">
+                    <i class="fas fa-camera"></i>
+                    <span>Bắt đầu quét</span>
+                </button>
+            </div>
+
+            <!-- Content View -->
+            <div class="content-view" id="contentView">
+                <div id="content-preview" class="content-preview">
+                    <div class="preview-placeholder">
+                        <i class="fas fa-qrcode"></i>
+                        <p>Quét mã QR để xem nội dung</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-button active" data-view="scanner">
+                <i class="fas fa-qrcode"></i>
+                <span>Quét mã</span>
+            </button>
+            <button class="nav-button" data-view="content">
+                <i class="fas fa-file-alt"></i>
+                <span>Nội dung</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="mobile.js"></script>
+</body>
+</html>

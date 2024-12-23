@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="https://cdn.statically.io/gh/tr1nh/fetch-sheet.js/master/fetch-sheet.min.js"></script>
+
+    <div id="content"></div>
+    <script>
+    fetchSheet
+        .fetch({
+            gSheetId: "1Ou0lWPoS4saNYh8stySSpJc_A3kw9WgZY8JLPWIbv9M",
+            wSheetName: "Trang tính1",
+        })
+        .then((rows) => {
+            const contentDiv = document.getElementById('content');
+            rows.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.innerHTML = `
+                    <h3>ID: ${item.ID}</h3>
+                    <h4>Name: ${item.name}</h4>
+                    <p>Content: ${item.content}</p>
+                    <hr>
+                `;
+                contentDiv.appendChild(itemDiv);
+            });
+        });
+    </script>
+</body>
+</html>
